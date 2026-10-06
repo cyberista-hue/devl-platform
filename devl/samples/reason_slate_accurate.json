@@ -1,0 +1,136 @@
+{
+  "alert_id": "ALT-S-ed7d82-0000844#192",
+  "generated_at_utc": "2026-09-27T12:36:42.609961+00:00",
+  "verification_outcome": "FULLY_SUPPORTED",
+  "analyst_decision": "ESCALATE",
+  "decision_support": {
+    "human_review_required": true,
+    "note": "This field reflects ONLY whether the explanation's claims are evidence-supported AND whether real evidence exists that the explanation never accounted for. It is NOT a disposition recommendation -- escalate/close decisions require severity, asset criticality, policy, and analyst context this layer does not have."
+  },
+  "explanation_text": "198.51.100.155 connected to ssh:22. 198.51.100.155 authenticated as svc23. 198.51.100.155 executed the command 'uname -a && id'. 198.51.100.155 downloaded a malicious payload with hash 6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8.",
+  "telemetry_graph_hash": "c5d5e7cb3eb62133bed7eb07c6c2c61b8ec76d22d443bffa4a4f91110856ba94",
+  "evidence_breakdown": {
+    "supporting": [
+      {
+        "claim": {
+          "subject": "198.51.100.155",
+          "relation": "CONNECTED_TO",
+          "object": "ssh:22",
+          "required_log": "network_session_log",
+          "raw_text": "198.51.100.155 connected to ssh:22"
+        },
+        "status": "VERIFIED",
+        "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+        "matched_evidence": [
+          {
+            "relation": "CONNECTED_TO",
+            "timestamp": "2026-07-01T00:42:13Z",
+            "log_source": "network_session_log",
+            "session_id": "S-ed7d82-0000844#192"
+          }
+        ]
+      },
+      {
+        "claim": {
+          "subject": "198.51.100.155",
+          "relation": "AUTHENTICATED_AS",
+          "object": "svc23",
+          "required_log": "auth_log",
+          "raw_text": "198.51.100.155 authenticated as svc23"
+        },
+        "status": "VERIFIED",
+        "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+        "matched_evidence": [
+          {
+            "relation": "AUTHENTICATED_AS",
+            "timestamp": "2026-07-01T00:42:15Z",
+            "log_source": "auth_log",
+            "session_id": "S-ed7d82-0000844#192"
+          }
+        ]
+      },
+      {
+        "claim": {
+          "subject": "198.51.100.155",
+          "relation": "EXECUTED",
+          "object": "uname -a && id",
+          "required_log": "command_exec_log",
+          "raw_text": "198.51.100.155 executed the command 'uname -a && id'"
+        },
+        "status": "VERIFIED",
+        "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+        "matched_evidence": [
+          {
+            "relation": "EXECUTED",
+            "timestamp": "2026-07-01T00:42:16Z",
+            "log_source": "command_exec_log",
+            "session_id": "S-ed7d82-0000844#192"
+          }
+        ]
+      },
+      {
+        "claim": {
+          "subject": "198.51.100.155",
+          "relation": "DOWNLOADED_PAYLOAD",
+          "object": "6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8",
+          "required_log": "payload_capture_log",
+          "raw_text": "198.51.100.155 downloaded a malicious payload with hash 6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8"
+        },
+        "status": "VERIFIED",
+        "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+        "matched_evidence": [
+          {
+            "relation": "DOWNLOADED_PAYLOAD",
+            "timestamp": "2026-07-01T00:42:17Z",
+            "log_source": "payload_capture_log",
+            "session_id": "S-ed7d82-0000844#192"
+          }
+        ]
+      }
+    ],
+    "contradictory": [],
+    "unsupported_claims": [],
+    "telemetry_gaps": []
+  },
+  "explanation_integrity": {
+    "score": 1.0,
+    "status": "EXPLANATION_FULLY_SUPPORTED",
+    "flags": [],
+    "sample_size": {
+      "verified": 4,
+      "contradicted": 0,
+      "unsupported": 0,
+      "missing_telemetry": 0
+    }
+  },
+  "evidence_coverage": {
+    "unaccounted_evidence": [
+      {
+        "subject": "198.51.100.155",
+        "relation": "DISCONNECTED_FROM",
+        "object": "ssh:22",
+        "timestamp": "2026-07-01T00:42:18Z",
+        "log_source": "network_session_log"
+      }
+    ],
+    "unaccounted_count": 1,
+    "note": "Real facts present in the telemetry graph that the explanation never referenced -- not wrong, just not accounted for. An analyst's reasoning can be fully TRUE and still incomplete."
+  },
+  "evidence_completeness": {
+    "timestamp_gaps": [],
+    "gap_count": 0,
+    "note": "Unusually large gaps between consecutive recorded events, using a simple fixed-threshold heuristic. This does NOT detect or claim evidence tampering/deletion -- it cannot see evidence that left no trace at all. It only flags a statistical property of the timestamps that ARE present, as a prompt for human review."
+  },
+  "telemetry_graph_stats": {
+    "node_count": 5,
+    "edge_count": 5,
+    "active_log_sources": [
+      "auth_log",
+      "command_exec_log",
+      "network_session_log",
+      "payload_capture_log"
+    ]
+  },
+  "evidence_digest": "db8012637fb9f3b83cd7e3df170f3408e3dd5e28516697e97293350a3ebbffde",
+  "audit_digest": "8fc90ec64d6e948b53f84573f5887a85c74f1f0d0fd9f2fea34d52da3ca9162b"
+}

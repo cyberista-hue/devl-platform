@@ -1,0 +1,26 @@
+title: Scripted Honeypot Recon Command (uname && id)
+id: 7f3a1b2c-4e5d-4a6f-9b8c-1d2e3f4a5b6c
+status: experimental
+description: >
+  Detects the exact recon command "uname -a && id" observed identically
+  across multiple independent honeypot sessions in the sealed replay
+  (schema-1 command events). Identical repeated command text across
+  unrelated sessions is consistent with scripted/automated post-access
+  behavior rather than manual operator input.
+references:
+  - honeypot-replay.jsonl (schema_version=1, action=command)
+author: UBI-2026-0010
+date: 2026-07-30
+logsource:
+  category: honeypot
+  product: t-pot
+detection:
+  selection:
+    action: command
+    command: 'uname -a && id'
+  condition: selection
+falsepositives:
+  - Legitimate administrator running a standard diagnostic command on a
+    real (non-honeypot) host, if this rule is ever applied outside the
+    honeypot log source.
+level: medium

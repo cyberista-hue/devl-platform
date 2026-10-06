@@ -1,0 +1,9 @@
+# Detects traffic to/from the confirmed payload-delivery infrastructure
+# (INFRA-1 in clusters.json): 3 IPs jointly responsible for delivering
+# 4 distinct payload hashes across ssh/http/telnet sessions in the sealed
+# replay. High confidence per D-009 -- these IPs functioned as shared
+# delivery infrastructure, not independent one-off sources.
+
+alert ip any any -> [198.51.100.155,198.51.100.160,198.51.100.87] any (msg:"UBI-STAGE6 Inbound to known payload-delivery infrastructure (INFRA-1)"; reference:url,clusters.json#INFRA-1; classtype:trojan-activity; sid:9000001; rev:1; priority:1;)
+
+alert ip [198.51.100.155,198.51.100.160,198.51.100.87] any -> any any (msg:"UBI-STAGE6 Outbound from known payload-delivery infrastructure (INFRA-1)"; reference:url,clusters.json#INFRA-1; classtype:trojan-activity; sid:9000002; rev:1; priority:1;)

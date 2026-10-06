@@ -1,0 +1,64 @@
+playbook_id: payload-delivery-v1
+name: "Payload Delivery / Malware Execution Response"
+description: >
+  Responds to a session showing exploitation, command execution, and
+  payload delivery (D-001 in docs/decision-log.md; anchored on session
+  S-ed7d82-0000844#192, INFRA-1 cluster). Enriches with MITRE ATT&CK
+  context and CTI reputation, creates a ticket, and notifies the analyst
+  automatically. Blocking the source IP at the firewall is destructive
+  (affects any legitimate traffic sharing that IP/NAT) and requires
+  explicit approval.
+mitre_techniques: ["T1190", "T1105", "T1059"]
+trigger:
+  alert_type: "payload_delivery_detected"
+
+steps:
+  - step_id: "01-mitre-enrich"
+    title: "Confirm MITRE ATT&CK technique context"
+    action: "mitre_enrich"
+    tag: safe
+    params: {}
+    description: >
+      Surfaces the technique chain already attached during enrichment:
+      T1190 (Exploit Public-Facing Application) -> T1105 (Ingress Tool
+      Transfer) -> T1059 (Command and Scripting Interpreter).
+
+  - step_id: "02-cti-enrich"
+    title: "Confirm source IP reputation"
+    action: "cti_enrich_ip"
+    tag: safe
+    params: {}
+    description: >
+      Surfaces the AbuseIPDB reputation result for the session's source
+      IP, already attached during enrichment.
+
+  - step_id: "03-create-ticket"
+    title: "Create incident ticket"
+    action: "create_ticket"
+    tag: safe
+    params: {priority_from_score: true}
+    description: >
+      Creates a structured local ticket record referencing the specific
+      session_id, executed command, and payload hash for analyst
+      follow-up.
+
+  - step_id: "04-notify-analyst"
+    title: "Notify on-call analyst"
+    action: "notify"
+    tag: safe
+    params: {channel: "console"}
+    description: >
+      Demo-safe console/log notification. No real paging system is
+      integrated in this prototype.
+
+  - step_id: "05-block-ip-firewall"
+    title: "Block source IP at firewall"
+    action: "block_ip_firewall"
+    tag: requires_approval
+    params: {}
+    description: >
+      DESTRUCTIVE: blocking an IP can affect legitimate shared/NAT'd
+      traffic and should be a deliberate decision, not automatic.
+      Requires explicit analyst approval in the UI. This prototype
+      simulates the action (no real firewall/SOAR integration connected)
+      and logs it as such.

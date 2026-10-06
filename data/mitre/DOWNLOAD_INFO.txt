@@ -1,0 +1,10 @@
+Source URL: https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json
+Downloaded: 2026-09-16T21:00:04Z
+File: enterprise-attack.json
+SHA-256: dc1639caa5501d720e280cf1cbd8fbe009884a0c9b3e6e9ed9d0c25166c3d8f4
+Size (bytes): 53835637
+Note: This pulls the "most recent Enterprise release" (unversioned rolling
+pointer) per the mitre-attack/attack-stix-data repo structure. For strict
+reproducibility, re-verify this hash before demo day — if MITRE has
+released a new version since download, the hash will differ and technique
+counts/IDs could shift slightly.

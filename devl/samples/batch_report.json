@@ -1,0 +1,395 @@
+{
+  "generated_at_utc": "2026-09-27T12:36:42.804239+00:00",
+  "total_alerts": 3,
+  "processed": 3,
+  "errors": 0,
+  "ranked_alerts": [
+    {
+      "alert_id": "ALT-001",
+      "status": "processed",
+      "slate": {
+        "alert_id": "ALT-001",
+        "generated_at_utc": "2026-09-27T12:36:42.803119+00:00",
+        "verification_outcome": "FULLY_SUPPORTED",
+        "analyst_decision": null,
+        "decision_support": {
+          "human_review_required": true,
+          "note": "This field reflects ONLY whether the explanation's claims are evidence-supported AND whether real evidence exists that the explanation never accounted for. It is NOT a disposition recommendation -- escalate/close decisions require severity, asset criticality, policy, and analyst context this layer does not have."
+        },
+        "explanation_text": "198.51.100.155 connected to ssh:22. 198.51.100.155 authenticated as svc23. 198.51.100.155 executed the command 'uname -a && id'. 198.51.100.155 downloaded a malicious payload with hash 6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8.",
+        "telemetry_graph_hash": "c5d5e7cb3eb62133bed7eb07c6c2c61b8ec76d22d443bffa4a4f91110856ba94",
+        "evidence_breakdown": {
+          "supporting": [
+            {
+              "claim": {
+                "subject": "198.51.100.155",
+                "relation": "CONNECTED_TO",
+                "object": "ssh:22",
+                "required_log": "network_session_log",
+                "raw_text": "198.51.100.155 connected to ssh:22"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "CONNECTED_TO",
+                  "timestamp": "2026-07-01T00:42:13Z",
+                  "log_source": "network_session_log",
+                  "session_id": "S-ed7d82-0000844#192"
+                }
+              ]
+            },
+            {
+              "claim": {
+                "subject": "198.51.100.155",
+                "relation": "AUTHENTICATED_AS",
+                "object": "svc23",
+                "required_log": "auth_log",
+                "raw_text": "198.51.100.155 authenticated as svc23"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "AUTHENTICATED_AS",
+                  "timestamp": "2026-07-01T00:42:15Z",
+                  "log_source": "auth_log",
+                  "session_id": "S-ed7d82-0000844#192"
+                }
+              ]
+            },
+            {
+              "claim": {
+                "subject": "198.51.100.155",
+                "relation": "EXECUTED",
+                "object": "uname -a && id",
+                "required_log": "command_exec_log",
+                "raw_text": "198.51.100.155 executed the command 'uname -a && id'"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "EXECUTED",
+                  "timestamp": "2026-07-01T00:42:16Z",
+                  "log_source": "command_exec_log",
+                  "session_id": "S-ed7d82-0000844#192"
+                }
+              ]
+            },
+            {
+              "claim": {
+                "subject": "198.51.100.155",
+                "relation": "DOWNLOADED_PAYLOAD",
+                "object": "6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8",
+                "required_log": "payload_capture_log",
+                "raw_text": "198.51.100.155 downloaded a malicious payload with hash 6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "DOWNLOADED_PAYLOAD",
+                  "timestamp": "2026-07-01T00:42:17Z",
+                  "log_source": "payload_capture_log",
+                  "session_id": "S-ed7d82-0000844#192"
+                }
+              ]
+            }
+          ],
+          "contradictory": [],
+          "unsupported_claims": [],
+          "telemetry_gaps": []
+        },
+        "explanation_integrity": {
+          "score": 1.0,
+          "status": "EXPLANATION_FULLY_SUPPORTED",
+          "flags": [],
+          "sample_size": {
+            "verified": 4,
+            "contradicted": 0,
+            "unsupported": 0,
+            "missing_telemetry": 0
+          }
+        },
+        "evidence_coverage": {
+          "unaccounted_evidence": [
+            {
+              "subject": "198.51.100.155",
+              "relation": "DISCONNECTED_FROM",
+              "object": "ssh:22",
+              "timestamp": "2026-07-01T00:42:18Z",
+              "log_source": "network_session_log"
+            }
+          ],
+          "unaccounted_count": 1,
+          "note": "Real facts present in the telemetry graph that the explanation never referenced -- not wrong, just not accounted for. An analyst's reasoning can be fully TRUE and still incomplete."
+        },
+        "evidence_completeness": {
+          "timestamp_gaps": [],
+          "gap_count": 0,
+          "note": "Unusually large gaps between consecutive recorded events, using a simple fixed-threshold heuristic. This does NOT detect or claim evidence tampering/deletion -- it cannot see evidence that left no trace at all. It only flags a statistical property of the timestamps that ARE present, as a prompt for human review."
+        },
+        "telemetry_graph_stats": {
+          "node_count": 5,
+          "edge_count": 5,
+          "active_log_sources": [
+            "auth_log",
+            "command_exec_log",
+            "network_session_log",
+            "payload_capture_log"
+          ]
+        },
+        "evidence_digest": "dbfeacea7a4970a846d54fd11d622abdfde0cce6122889984b8daca99f17a742",
+        "audit_digest": "cab152c6567894fe4a1be1c1bd38bc1b1fac36bfc3942d895c3981b6ca6f95a2"
+      }
+    },
+    {
+      "alert_id": "ALT-002",
+      "status": "processed",
+      "slate": {
+        "alert_id": "ALT-002",
+        "generated_at_utc": "2026-09-27T12:36:42.803744+00:00",
+        "verification_outcome": "FULLY_SUPPORTED",
+        "analyst_decision": null,
+        "decision_support": {
+          "human_review_required": true,
+          "note": "This field reflects ONLY whether the explanation's claims are evidence-supported AND whether real evidence exists that the explanation never accounted for. It is NOT a disposition recommendation -- escalate/close decisions require severity, asset criticality, policy, and analyst context this layer does not have."
+        },
+        "explanation_text": "198.51.100.155 connected to mqtt:1883.",
+        "telemetry_graph_hash": "2c5e52cd94e6ce7f1a6b5d3aa14837005cb558c60b282c0e387a91a1af8647e8",
+        "evidence_breakdown": {
+          "supporting": [
+            {
+              "claim": {
+                "subject": "198.51.100.155",
+                "relation": "CONNECTED_TO",
+                "object": "mqtt:1883",
+                "required_log": "network_session_log",
+                "raw_text": "198.51.100.155 connected to mqtt:1883"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "CONNECTED_TO",
+                  "timestamp": "2026-07-01T00:10:34Z",
+                  "log_source": "network_session_log",
+                  "session_id": "S-ed7d82-0000211#201"
+                }
+              ]
+            }
+          ],
+          "contradictory": [],
+          "unsupported_claims": [],
+          "telemetry_gaps": []
+        },
+        "explanation_integrity": {
+          "score": 1.0,
+          "status": "EXPLANATION_FULLY_SUPPORTED",
+          "flags": [],
+          "sample_size": {
+            "verified": 1,
+            "contradicted": 0,
+            "unsupported": 0,
+            "missing_telemetry": 0
+          }
+        },
+        "evidence_coverage": {
+          "unaccounted_evidence": [
+            {
+              "subject": "198.51.100.155",
+              "relation": "DISCONNECTED_FROM",
+              "object": "mqtt:1883",
+              "timestamp": "2026-07-01T00:10:39Z",
+              "log_source": "network_session_log"
+            },
+            {
+              "subject": "198.51.100.155",
+              "relation": "AUTHENTICATED_AS",
+              "object": "svc30",
+              "timestamp": "2026-07-01T00:10:36Z",
+              "log_source": "auth_log"
+            },
+            {
+              "subject": "198.51.100.155",
+              "relation": "EXECUTED",
+              "object": "uname -a && id",
+              "timestamp": "2026-07-01T00:10:37Z",
+              "log_source": "command_exec_log"
+            },
+            {
+              "subject": "198.51.100.155",
+              "relation": "DOWNLOADED_PAYLOAD",
+              "object": "e1c27bf70abbabeb9ee71bffa8f9737b70361802170cbe39c11bbdc42875263f",
+              "timestamp": "2026-07-01T00:10:38Z",
+              "log_source": "payload_capture_log"
+            }
+          ],
+          "unaccounted_count": 4,
+          "note": "Real facts present in the telemetry graph that the explanation never referenced -- not wrong, just not accounted for. An analyst's reasoning can be fully TRUE and still incomplete."
+        },
+        "evidence_completeness": {
+          "timestamp_gaps": [],
+          "gap_count": 0,
+          "note": "Unusually large gaps between consecutive recorded events, using a simple fixed-threshold heuristic. This does NOT detect or claim evidence tampering/deletion -- it cannot see evidence that left no trace at all. It only flags a statistical property of the timestamps that ARE present, as a prompt for human review."
+        },
+        "telemetry_graph_stats": {
+          "node_count": 5,
+          "edge_count": 5,
+          "active_log_sources": [
+            "auth_log",
+            "command_exec_log",
+            "network_session_log",
+            "payload_capture_log"
+          ]
+        },
+        "evidence_digest": "ed1bc7926de4818bc09a85055d28841e6307e8b8ceb23e63ea1b0be07c8e8466",
+        "audit_digest": "c93511ab850d7d6db63c7c6fdf205655c2a2ab4eed85ceb2bbc03e8cad25a5cf"
+      }
+    },
+    {
+      "alert_id": "ALT-003",
+      "status": "processed",
+      "slate": {
+        "alert_id": "ALT-003",
+        "generated_at_utc": "2026-09-27T12:36:42.804123+00:00",
+        "verification_outcome": "FULLY_SUPPORTED",
+        "analyst_decision": null,
+        "decision_support": {
+          "human_review_required": true,
+          "note": "This field reflects ONLY whether the explanation's claims are evidence-supported AND whether real evidence exists that the explanation never accounted for. It is NOT a disposition recommendation -- escalate/close decisions require severity, asset criticality, policy, and analyst context this layer does not have."
+        },
+        "explanation_text": "198.51.100.160 connected to mqtt:1883.",
+        "telemetry_graph_hash": "7ecc040eb7f0a461d4efb9ad347f972e4aa94292dc0b798e38a92ae7e0eab2d9",
+        "evidence_breakdown": {
+          "supporting": [
+            {
+              "claim": {
+                "subject": "198.51.100.160",
+                "relation": "CONNECTED_TO",
+                "object": "mqtt:1883",
+                "required_log": "network_session_log",
+                "raw_text": "198.51.100.160 connected to mqtt:1883"
+              },
+              "status": "VERIFIED",
+              "note": "Matched 1 real telemetry event(s) supporting this exact claim.",
+              "matched_evidence": [
+                {
+                  "relation": "CONNECTED_TO",
+                  "timestamp": "2026-07-01T00:52:46Z",
+                  "log_source": "network_session_log",
+                  "session_id": "S-ed7d82-0001055#883"
+                }
+              ]
+            }
+          ],
+          "contradictory": [],
+          "unsupported_claims": [],
+          "telemetry_gaps": []
+        },
+        "explanation_integrity": {
+          "score": 1.0,
+          "status": "EXPLANATION_FULLY_SUPPORTED",
+          "flags": [],
+          "sample_size": {
+            "verified": 1,
+            "contradicted": 0,
+            "unsupported": 0,
+            "missing_telemetry": 0
+          }
+        },
+        "evidence_coverage": {
+          "unaccounted_evidence": [
+            {
+              "subject": "198.51.100.160",
+              "relation": "DISCONNECTED_FROM",
+              "object": "mqtt:1883",
+              "timestamp": "2026-07-01T00:52:51Z",
+              "log_source": "network_session_log"
+            },
+            {
+              "subject": "198.51.100.160",
+              "relation": "AUTHENTICATED_AS",
+              "object": "svc44",
+              "timestamp": "2026-07-01T00:52:48Z",
+              "log_source": "auth_log"
+            },
+            {
+              "subject": "198.51.100.160",
+              "relation": "EXECUTED",
+              "object": "uname -a && id",
+              "timestamp": "2026-07-01T00:52:49Z",
+              "log_source": "command_exec_log"
+            },
+            {
+              "subject": "198.51.100.160",
+              "relation": "DOWNLOADED_PAYLOAD",
+              "object": "e1c27bf70abbabeb9ee71bffa8f9737b70361802170cbe39c11bbdc42875263f",
+              "timestamp": "2026-07-01T00:52:50Z",
+              "log_source": "payload_capture_log"
+            }
+          ],
+          "unaccounted_count": 4,
+          "note": "Real facts present in the telemetry graph that the explanation never referenced -- not wrong, just not accounted for. An analyst's reasoning can be fully TRUE and still incomplete."
+        },
+        "evidence_completeness": {
+          "timestamp_gaps": [],
+          "gap_count": 0,
+          "note": "Unusually large gaps between consecutive recorded events, using a simple fixed-threshold heuristic. This does NOT detect or claim evidence tampering/deletion -- it cannot see evidence that left no trace at all. It only flags a statistical property of the timestamps that ARE present, as a prompt for human review."
+        },
+        "telemetry_graph_stats": {
+          "node_count": 5,
+          "edge_count": 5,
+          "active_log_sources": [
+            "auth_log",
+            "command_exec_log",
+            "network_session_log",
+            "payload_capture_log"
+          ]
+        },
+        "evidence_digest": "3529a6c783ca0ee887880fcefbcf9ad3865c1da2b74786daab3f6fb87d063ade",
+        "audit_digest": "657ec1644329e40b87e02306c5f85dae6df3331ef060258c33bc556b515eb0a2"
+      }
+    }
+  ],
+  "correlation": {
+    "shared_entity_count": 4,
+    "shared_entities": [
+      {
+        "entity": "198.51.100.155",
+        "appears_in_alerts": [
+          "ALT-001",
+          "ALT-002"
+        ],
+        "confidence": "STRONG_ENTITY_OVERLAP"
+      },
+      {
+        "entity": "e1c27bf70abbabeb9ee71bffa8f9737b70361802170cbe39c11bbdc42875263f",
+        "appears_in_alerts": [
+          "ALT-002",
+          "ALT-003"
+        ],
+        "confidence": "STRONG_ENTITY_OVERLAP"
+      },
+      {
+        "entity": "mqtt:1883",
+        "appears_in_alerts": [
+          "ALT-002",
+          "ALT-003"
+        ],
+        "confidence": "MEDIUM_ENTITY_OVERLAP"
+      },
+      {
+        "entity": "uname -a && id",
+        "appears_in_alerts": [
+          "ALT-001",
+          "ALT-002",
+          "ALT-003"
+        ],
+        "confidence": "WEAK_ENTITY_OVERLAP"
+      }
+    ]
+  },
+  "batch_audit_digest": "20526ec8f882255b9608fd78cc75119743fe3a997cfec0d54140dd001f0a3223"
+}

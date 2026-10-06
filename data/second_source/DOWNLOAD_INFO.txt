@@ -1,0 +1,17 @@
+Source: public GitHub Gist by kingabzpro
+Gist URL: https://gist.github.com/kingabzpro/a41e66b87055b1738f447be735be5b9b
+Original data credit (per gist description): Kaggle dataset
+  https://www.kaggle.com/lako65/ssh-brute-force-ipuserpassword
+Retrieved via: web_fetch tool (Anthropic's own fetcher), 2026-09-17T19:10:26Z
+SHA-256 of saved subset: 9fe035e60a7f63d2512b4534208ca289e04e81f7e57bc5ced673ad04a08337bc
+Row count in this file: 183 data rows (plus 1 header row)
+
+IMPORTANT SCOPE NOTE: This is a genuine but PARTIAL sample of the full
+gist (which contains several thousand rows per its own description).
+Only the rows that were directly visible in the web_fetch tool result
+were saved -- nothing here was fabricated, but this is not the complete
+original dataset. This is disclosed here explicitly rather than implied
+as complete. If full-dataset scale is needed later, download the
+complete gist directly (requires a host not in this container's network
+allowlist -- gist.githubusercontent.com -- so it must be done outside
+this sandboxed environment, e.g. by the user directly).

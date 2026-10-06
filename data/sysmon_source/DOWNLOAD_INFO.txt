@@ -1,0 +1,19 @@
+Source URL: https://media.githubusercontent.com/media/splunk/attack_data/master/datasets/attack_techniques/T1016/discovery_commands/windows-sysmon.log
+Source repo: https://github.com/splunk/attack_data (Splunk's public security-detection-testing dataset repo)
+Tied to real MITRE technique: T1016 (System Network Configuration Discovery), from Splunk's security_content detection-testing pipeline (attack_range environment, test date 2020-11-10)
+Retrieved via: web_fetch tool, 2026-09-30T20:58:48Z
+SHA-256 of saved subset: dd4408b7fbd10193c4525963dd27e8a8a258b18bcecdebb17755cc1b94721701
+
+IMPORTANT SCOPE NOTE: This is a genuine but SMALL, HAND-SELECTED subset
+of the full real log (which contains 125+ events). Only 6 events were
+selected: 3 real process-creation events (EventID 1, with real
+ParentProcessGuid/ParentImage/ParentCommandLine fields) showing a real
+process lineage chain (services.exe -> sysmon64.exe; svchost.exe ->
+unsecapp.exe; powershell.exe -> chcp.com, including powershell's real
+base64 EncodedCommand argument), plus 2 real process-access events
+(EventID 10) and 1 real file-creation event (EventID 11) that
+corroborate the same chain (lsass/conhost accessing the powershell
+process, powershell writing a temp .ps1 file). This is disclosed
+explicitly, not implied as the complete original dataset. Selected to
+be a real, internally-consistent, causally-linked lineage sample, not
+a random sample of unrelated events.

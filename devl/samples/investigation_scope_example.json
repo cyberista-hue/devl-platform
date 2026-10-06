@@ -1,0 +1,9 @@
+{
+  "incident_id": "INC-2026-014",
+  "affected_entities": [
+    "198.51.100.155",
+    "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+  ],
+  "window_start": "2026-07-01T00:42:00Z",
+  "window_end": "2026-07-01T00:43:00Z"
+}

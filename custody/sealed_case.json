@@ -1,0 +1,425 @@
+{
+  "tool": "custody_cli",
+  "tool_version": "1.0.0",
+  "algorithm": "SHA256-chain",
+  "sealed_at_utc": "2026-09-20T19:25:43.827462+00:00",
+  "source_file": "/home/claude/soc-ir-platform/audit/audit_log.jsonl",
+  "entry_count": 18,
+  "root_hash": "a30dcbeb23c7802b6d5dfdf52456ff33520e32aa4f34d5f06813e5727724de04",
+  "entries": [
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "01-mitre-enrich",
+      "step_title": "Confirm MITRE ATT&CK technique context",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "MITRE context already attached: resolved",
+        "timestamp_utc": "2026-09-20T19:24:56.678121+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678138+00:00"
+    },
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "02-cti-enrich",
+      "step_title": "Confirm source IP reputation",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "CTI context already attached: unavailable",
+        "timestamp_utc": "2026-09-20T19:24:56.678258+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678263+00:00"
+    },
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "03-create-ticket",
+      "step_title": "Create incident ticket",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "Ticket created: TCK-S-ed7d82-0000844#192-1789932296 (priority=medium)",
+        "ticket": {
+          "ticket_id": "TCK-S-ed7d82-0000844#192-1789932296",
+          "alert_type": "payload_delivery_detected",
+          "entity_id": "S-ed7d82-0000844#192",
+          "priority": "medium",
+          "created_utc": "2026-09-20T19:24:56.678304+00:00"
+        },
+        "timestamp_utc": "2026-09-20T19:24:56.678308+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678316+00:00"
+    },
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "04-notify-analyst",
+      "step_title": "Notify on-call analyst",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "[NOTIFY:console] Alert S-ed7d82-0000844#192 (payload_delivery_detected) requires SOC attention.",
+        "timestamp_utc": "2026-09-20T19:24:56.678347+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678350+00:00"
+    },
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "05-block-ip-firewall",
+      "step_title": "Block source IP at firewall",
+      "tag": "requires_approval",
+      "decision": "pending",
+      "outcome": {
+        "status": "pending_approval"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678371+00:00"
+    },
+    {
+      "run_id": "RUN-payload-delivery-v1-S-ed7d82-0000844#192-1789932296",
+      "playbook_id": "payload-delivery-v1",
+      "alert_entity_id": "S-ed7d82-0000844#192",
+      "alert_type": "payload_delivery_detected",
+      "step_id": "05-block-ip-firewall",
+      "step_title": "Block source IP at firewall",
+      "tag": "requires_approval",
+      "decision": "approved",
+      "outcome": {
+        "status": "completed_simulated",
+        "detail": "SIMULATED destructive action: would block source_ip 198.51.100.155 at firewall. No real firewall/SOAR integration is connected in this prototype -- see docs/path-to-production.md.",
+        "timestamp_utc": "2026-09-20T19:24:56.678393+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.678396+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "01-mitre-enrich",
+      "step_title": "Confirm MITRE ATT&CK technique context",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "MITRE context already attached: resolved",
+        "timestamp_utc": "2026-09-20T19:24:56.681212+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681220+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "02-cti-enrich",
+      "step_title": "Confirm source IP reputation",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "CTI context already attached: unavailable",
+        "timestamp_utc": "2026-09-20T19:24:56.681272+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681275+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "03-create-ticket",
+      "step_title": "Create incident ticket",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "Ticket created: TCK-203.0.113.237-1789932296 (priority=medium)",
+        "ticket": {
+          "ticket_id": "TCK-203.0.113.237-1789932296",
+          "alert_type": "credential_stuffing_detected",
+          "entity_id": "203.0.113.237",
+          "priority": "medium",
+          "created_utc": "2026-09-20T19:24:56.681306+00:00"
+        },
+        "timestamp_utc": "2026-09-20T19:24:56.681315+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681318+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "04-notify-analyst",
+      "step_title": "Notify on-call analyst",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "[NOTIFY:console] Alert 203.0.113.237 (credential_stuffing_detected) requires SOC attention.",
+        "timestamp_utc": "2026-09-20T19:24:56.681342+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681345+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "05-lock-account",
+      "step_title": "Lock targeted account(s)",
+      "tag": "requires_approval",
+      "decision": "pending",
+      "outcome": {
+        "status": "pending_approval"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681363+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.237-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.237",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "05-lock-account",
+      "step_title": "Lock targeted account(s)",
+      "tag": "requires_approval",
+      "decision": "approved",
+      "outcome": {
+        "status": "completed_simulated",
+        "detail": "SIMULATED destructive action: would lock account(s) associated with entity 203.0.113.237. No real IAM system is connected in this prototype -- see docs/path-to-production.md.",
+        "timestamp_utc": "2026-09-20T19:24:56.681386+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.681389+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "01-mitre-enrich",
+      "step_title": "Confirm MITRE ATT&CK technique context",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "MITRE context already attached: resolved",
+        "timestamp_utc": "2026-09-20T19:24:56.683825+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683831+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "02-cti-enrich",
+      "step_title": "Confirm source IP reputation",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "CTI context already attached: unavailable",
+        "timestamp_utc": "2026-09-20T19:24:56.683870+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683873+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "03-create-ticket",
+      "step_title": "Create incident ticket",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "Ticket created: TCK-203.0.113.182-1789932296 (priority=medium)",
+        "ticket": {
+          "ticket_id": "TCK-203.0.113.182-1789932296",
+          "alert_type": "credential_stuffing_detected",
+          "entity_id": "203.0.113.182",
+          "priority": "medium",
+          "created_utc": "2026-09-20T19:24:56.683895+00:00"
+        },
+        "timestamp_utc": "2026-09-20T19:24:56.683898+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683899+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "04-notify-analyst",
+      "step_title": "Notify on-call analyst",
+      "tag": "safe",
+      "decision": null,
+      "outcome": {
+        "status": "completed",
+        "detail": "[NOTIFY:console] Alert 203.0.113.182 (credential_stuffing_detected) requires SOC attention.",
+        "timestamp_utc": "2026-09-20T19:24:56.683923+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683925+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "05-lock-account",
+      "step_title": "Lock targeted account(s)",
+      "tag": "requires_approval",
+      "decision": "pending",
+      "outcome": {
+        "status": "pending_approval"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683941+00:00"
+    },
+    {
+      "run_id": "RUN-credential-stuffing-v1-203.0.113.182-1789932296",
+      "playbook_id": "credential-stuffing-v1",
+      "alert_entity_id": "203.0.113.182",
+      "alert_type": "credential_stuffing_detected",
+      "step_id": "05-lock-account",
+      "step_title": "Lock targeted account(s)",
+      "tag": "requires_approval",
+      "decision": "approved",
+      "outcome": {
+        "status": "completed_simulated",
+        "detail": "SIMULATED destructive action: would lock account(s) associated with entity 203.0.113.182. No real IAM system is connected in this prototype -- see docs/path-to-production.md.",
+        "timestamp_utc": "2026-09-20T19:24:56.683960+00:00"
+      },
+      "logged_at_utc": "2026-09-20T19:24:56.683963+00:00"
+    }
+  ],
+  "chain": [
+    {
+      "index": 0,
+      "entry_content_hash": "8617c96b275288549f018c9c07b7716abf4c681fe4ab91bd8c5890a9401d4355",
+      "prev_link_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "link_hash": "18a5cfe77c04440389e702f4db389e410bc11912ffa94fdeb5f7d2bef21ac257"
+    },
+    {
+      "index": 1,
+      "entry_content_hash": "3bc7652d48f13a93c0cd78542bbe02fd954e3a26d48d4769d2640f59c26fe305",
+      "prev_link_hash": "18a5cfe77c04440389e702f4db389e410bc11912ffa94fdeb5f7d2bef21ac257",
+      "link_hash": "8014dfa793117b43987f8ffab329b7ccdd693fd3b32bce24275cfb30316b576e"
+    },
+    {
+      "index": 2,
+      "entry_content_hash": "a52d566de3250bb835d8a78b1566169fb44fde2a14bff0d2f5f65e100b6e40a7",
+      "prev_link_hash": "8014dfa793117b43987f8ffab329b7ccdd693fd3b32bce24275cfb30316b576e",
+      "link_hash": "79c8056cb36c05566e72100dc9b0f01a1f85479afc00bfb60b8c69ab347e0dc8"
+    },
+    {
+      "index": 3,
+      "entry_content_hash": "9e93f5d59ecd206751dd6503ccae3760447d4194b68cc1c69c576000f1fcb977",
+      "prev_link_hash": "79c8056cb36c05566e72100dc9b0f01a1f85479afc00bfb60b8c69ab347e0dc8",
+      "link_hash": "575da6ececb95577a3e22d6cdd5425ef2d5ae0fc98134baa80628cec3c641bdd"
+    },
+    {
+      "index": 4,
+      "entry_content_hash": "3ceddc9fef9ed942d6e74ae44f7684263208b38fc06bfdb3c86c5d20f4ff2072",
+      "prev_link_hash": "575da6ececb95577a3e22d6cdd5425ef2d5ae0fc98134baa80628cec3c641bdd",
+      "link_hash": "c321e7ea478e12264510328c3172a6ef2c58234cc3d05fa9daab914f88f01fd0"
+    },
+    {
+      "index": 5,
+      "entry_content_hash": "3ea8532dde3ee99d60b53a4bac2f19ea3de9ebbbb42c593cbee1648e5acaae70",
+      "prev_link_hash": "c321e7ea478e12264510328c3172a6ef2c58234cc3d05fa9daab914f88f01fd0",
+      "link_hash": "82d0b49303b2a1a4a2e5d09f6e873508503373ebc5932e4cc70d4cefe1061577"
+    },
+    {
+      "index": 6,
+      "entry_content_hash": "6e6a94ffaa8dfda5d6954392fafdac4ec99b891656f8bc9e6acf8078a415d895",
+      "prev_link_hash": "82d0b49303b2a1a4a2e5d09f6e873508503373ebc5932e4cc70d4cefe1061577",
+      "link_hash": "cdccd73f2baa648b93bbbbcd4a34c4fe295a1614b94b25fcf9bf573992e8810b"
+    },
+    {
+      "index": 7,
+      "entry_content_hash": "2f909573bb094627385347f5013feae503bf99690372e9e7abc6722b8971e6ea",
+      "prev_link_hash": "cdccd73f2baa648b93bbbbcd4a34c4fe295a1614b94b25fcf9bf573992e8810b",
+      "link_hash": "1c91df016c5ac54f01be60fa8e481cb4f412b16292c41252061dc4daca5dd7da"
+    },
+    {
+      "index": 8,
+      "entry_content_hash": "b40246583353d957d07ad29d4f02ad2186f9656131cd63160ee16d2972da3df1",
+      "prev_link_hash": "1c91df016c5ac54f01be60fa8e481cb4f412b16292c41252061dc4daca5dd7da",
+      "link_hash": "95252b9d612f8feb3f4a0e1f24e3d1694385090bd63af511cadfb41391493271"
+    },
+    {
+      "index": 9,
+      "entry_content_hash": "4ebced79812d5a64ba9e5e0243437e7667a37e4ddee21ac40578edbcb4688bc5",
+      "prev_link_hash": "95252b9d612f8feb3f4a0e1f24e3d1694385090bd63af511cadfb41391493271",
+      "link_hash": "9f4021590289853dfdca0d158f43cde46fa72e159637d66cb7be5e7777391378"
+    },
+    {
+      "index": 10,
+      "entry_content_hash": "5850761b4861fe68a6bdea45a8485d86499839fb6ab962d5d25a5b6508dddced",
+      "prev_link_hash": "9f4021590289853dfdca0d158f43cde46fa72e159637d66cb7be5e7777391378",
+      "link_hash": "9700e866bb1c3d6fde6595d4e54566c831edca15b1f3e356314ba8c1056920d1"
+    },
+    {
+      "index": 11,
+      "entry_content_hash": "74f204b81df887d05a76824912c35b658b1b7782d06e48f1e35e1742064efae0",
+      "prev_link_hash": "9700e866bb1c3d6fde6595d4e54566c831edca15b1f3e356314ba8c1056920d1",
+      "link_hash": "8884b4e2c1a93383895432e9487da1b9b47b494fd2a3f599de7b4c0a992e5c6a"
+    },
+    {
+      "index": 12,
+      "entry_content_hash": "2d2113a063828d97f6f15fba69f0bdeb0e02fedc945aadf664b7beca691827af",
+      "prev_link_hash": "8884b4e2c1a93383895432e9487da1b9b47b494fd2a3f599de7b4c0a992e5c6a",
+      "link_hash": "c002e7a2e2ea08159d9d51c0d4fec204694a90f34a1ecf32e8fbbedb5c33c24f"
+    },
+    {
+      "index": 13,
+      "entry_content_hash": "2b61af25e99db5eb92dc4f0929ded1454602e3c00f1751fa80fe9f51992edf7e",
+      "prev_link_hash": "c002e7a2e2ea08159d9d51c0d4fec204694a90f34a1ecf32e8fbbedb5c33c24f",
+      "link_hash": "ce33b8d49656fa0481f1cd97601891a306e26a34f4e750c4efca2cd649fc33b8"
+    },
+    {
+      "index": 14,
+      "entry_content_hash": "6c21ab29c52d64f23df18a1dce2f14138e6014aa21558aa61f071fa394e77020",
+      "prev_link_hash": "ce33b8d49656fa0481f1cd97601891a306e26a34f4e750c4efca2cd649fc33b8",
+      "link_hash": "8840049d6c070b9299d42daee04f146fa4eb3bf04343bec06fcc58119d5612b0"
+    },
+    {
+      "index": 15,
+      "entry_content_hash": "45ea52a808f162fe095fb1c7ad1924f2d51b1427b27404bc5d5d5a4e4a0e471f",
+      "prev_link_hash": "8840049d6c070b9299d42daee04f146fa4eb3bf04343bec06fcc58119d5612b0",
+      "link_hash": "d652a7aeabb161c939b7eba934a02d53b0f1b318b15ec76c834391d069226aa9"
+    },
+    {
+      "index": 16,
+      "entry_content_hash": "9137248a13d6a0b1d1f3dafc9ba864cb9478abcb49a789c7086facfd614c9d00",
+      "prev_link_hash": "d652a7aeabb161c939b7eba934a02d53b0f1b318b15ec76c834391d069226aa9",
+      "link_hash": "15c83e35c111fe91b75991f37c2f018e635ab9421bdf1f1816ba67d7666b3324"
+    },
+    {
+      "index": 17,
+      "entry_content_hash": "e65a260d7357cb214955ef636669a3be89e33a9b7265738a5f9206799eb580f3",
+      "prev_link_hash": "15c83e35c111fe91b75991f37c2f018e635ab9421bdf1f1816ba67d7666b3324",
+      "link_hash": "a30dcbeb23c7802b6d5dfdf52456ff33520e32aa4f34d5f06813e5727724de04"
+    }
+  ],
+  "signature": null
+}

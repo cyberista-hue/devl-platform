@@ -1,0 +1,81 @@
+# playbook_schema.yaml
+#
+# This documents the required structure every playbook file in
+# playbooks/*.yaml must follow. It is not itself an executable playbook --
+# playbook_engine.py validates real playbooks against this shape.
+#
+# Design principle (locked in earlier): every step is tagged either
+# "safe" (auto-executes) or "requires_approval" (engine pauses, logs a
+# pending action, and waits for an explicit analyst decision before
+# proceeding). No step may run without one of these two tags -- the
+# engine treats a missing/unknown tag as a hard validation error, not a
+# default-safe assumption.
+
+schema_version: 1
+
+# --- required top-level fields for every playbook file ---
+playbook_id: string            # unique, e.g. "credential-stuffing-v1"
+name: string                   # human-readable
+description: string
+mitre_techniques: [string]     # e.g. ["T1110.004"] -- must resolve via enrichment/mitre_lookup.py
+trigger:
+  # what alert condition invokes this playbook. Kept simple and explicit --
+  # no fuzzy matching magic. Matched against normalized alert fields
+  # produced by the ingestion layer.
+  alert_type: string           # e.g. "credential_stuffing_detected"
+
+steps:
+  - step_id: string            # unique within this playbook
+    title: string               # shown in UI / audit log
+    action: string               # machine-readable action name, must exist
+                                  # in playbooks/actions_registry.py
+    tag: safe | requires_approval   # REQUIRED, no default
+    params: {}                   # action-specific parameters
+    description: string          # why this step exists, shown in UI for
+                                  # analyst context before approval
+
+# --- example of what a real playbook file looks like (reference only) ---
+# playbook_id: credential-stuffing-v1
+# name: "Credential Stuffing Response"
+# description: >
+#   Enriches a suspected credential-stuffing alert with MITRE technique
+#   context and CTI reputation, then executes safe containment/notify
+#   steps automatically. Destructive account/session actions require
+#   explicit analyst approval.
+# mitre_techniques: ["T1110.004"]
+# trigger:
+#   alert_type: "credential_stuffing_detected"
+# steps:
+#   - step_id: "01-mitre-enrich"
+#     title: "Map to MITRE ATT&CK technique"
+#     action: "mitre_enrich"
+#     tag: safe
+#     params: {}
+#     description: "Attaches technique ID/name/tactic from local ATT&CK bundle."
+#   - step_id: "02-cti-enrich"
+#     title: "Check source IP reputation"
+#     action: "cti_enrich_ip"
+#     tag: safe
+#     params: {}
+#     description: "Queries AbuseIPDB (cached) for source IP abuse confidence score."
+#   - step_id: "03-create-ticket"
+#     title: "Create incident ticket"
+#     action: "create_ticket"
+#     tag: safe
+#     params: {priority_from_score: true}
+#     description: "Logs a structured incident record with enrichment context."
+#   - step_id: "04-notify-analyst"
+#     title: "Notify on-call analyst"
+#     action: "notify"
+#     tag: safe
+#     params: {channel: "console"}
+#     description: "Demo-safe notification -- prints to console/log, no real paging integration."
+#   - step_id: "05-lock-account"
+#     title: "Lock affected user account(s)"
+#     action: "lock_account"
+#     tag: requires_approval
+#     params: {}
+#     description: >
+#       DESTRUCTIVE/reversible-with-effort: locks the account out of
+#       legitimate access too. Must be explicitly approved by an analyst
+#       in the UI before this executes.

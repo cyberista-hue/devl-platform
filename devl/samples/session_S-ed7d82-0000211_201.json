@@ -1,0 +1,86 @@
+{
+  "session_id": "S-ed7d82-0000211#201",
+  "source_ip": "198.51.100.155",
+  "protocol": "mqtt",
+  "destination_port": 1883,
+  "events": [
+    {
+      "event_id": "S-ed7d82-0000211-1",
+      "action": "connect",
+      "utc": "2026-07-01T00:10:34Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "S-ed7d82-0000211",
+      "username": null,
+      "credential_fingerprint": null,
+      "command": null,
+      "payload_sha256": null,
+      "bytes": 4886,
+      "schema_source": "replay-v2"
+    },
+    {
+      "event_id": "S-ed7d82-0000211-2",
+      "action": "client_banner",
+      "utc": "2026-07-01T00:10:35Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "conn-4717d993a8b1",
+      "username": null,
+      "credential_fingerprint": null,
+      "command": null,
+      "payload_sha256": null,
+      "bytes": 2478,
+      "schema_source": "replay-v1"
+    },
+    {
+      "event_id": "S-ed7d82-0000211-3",
+      "action": "auth_success",
+      "utc": "2026-07-01T00:10:36Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "S-ed7d82-0000211",
+      "username": "svc30",
+      "credential_fingerprint": "1a5ace3ed07f1b60",
+      "command": null,
+      "payload_sha256": null,
+      "bytes": 2701,
+      "schema_source": "replay-v2"
+    },
+    {
+      "event_id": "S-ed7d82-0000211-4",
+      "action": "command",
+      "utc": "2026-07-01T00:10:37Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "conn-4717d993a8b1",
+      "username": null,
+      "credential_fingerprint": null,
+      "command": "uname -a && id",
+      "payload_sha256": null,
+      "bytes": 899,
+      "schema_source": "replay-v1"
+    },
+    {
+      "event_id": "S-ed7d82-0000211-5",
+      "action": "payload_download",
+      "utc": "2026-07-01T00:10:38Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "S-ed7d82-0000211",
+      "username": null,
+      "credential_fingerprint": null,
+      "command": null,
+      "payload_sha256": "e1c27bf70abbabeb9ee71bffa8f9737b70361802170cbe39c11bbdc42875263f",
+      "bytes": 3928,
+      "schema_source": "replay-v2"
+    },
+    {
+      "event_id": "S-ed7d82-0000211-6",
+      "action": "disconnect",
+      "utc": "2026-07-01T00:10:39Z",
+      "protocol": "mqtt",
+      "raw_connection_id": "conn-4717d993a8b1",
+      "username": null,
+      "credential_fingerprint": null,
+      "command": null,
+      "payload_sha256": null,
+      "bytes": 5330,
+      "schema_source": "replay-v1"
+    }
+  ]
+}

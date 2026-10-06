@@ -1,0 +1,17 @@
+[
+  {
+    "alert_id": "ALT-001",
+    "session": "devl/samples/demo_session_payload_delivery.json",
+    "explanation": "198.51.100.155 connected to ssh:22. 198.51.100.155 authenticated as svc23. 198.51.100.155 executed the command 'uname -a && id'. 198.51.100.155 downloaded a malicious payload with hash 6cac3bae3e6b9c949bfc114ff6d127cf141eefe4e8f544ce5261c5ef355008c8."
+  },
+  {
+    "alert_id": "ALT-002",
+    "session": "devl/samples/session_S-ed7d82-0000211_201.json",
+    "explanation": "198.51.100.155 connected to mqtt:1883."
+  },
+  {
+    "alert_id": "ALT-003",
+    "session": "devl/samples/session_S-ed7d82-0001055_883.json",
+    "explanation": "198.51.100.160 connected to mqtt:1883."
+  }
+]
